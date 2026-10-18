@@ -24,7 +24,7 @@ Before going live:
 
 ## Deploy
 
-Live at **https://fatehsandhu.github.io**.
+Live at [fatehsandhu.github.io](https://fatehsandhu.github.io/)
 
 The site builds to static files (`output: "export"` in `next.config.ts`) and deploys to GitHub Pages through `.github/workflows/deploy.yml`. Every push to `master` rebuilds and redeploys; progress shows under the repo's **Actions** tab.
 

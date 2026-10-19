@@ -1,14 +1,19 @@
 import type { Metadata } from "next";
-import { site } from "@/content/site";
-import { TerminalPage } from "@/components/v2/TerminalPage";
-import "@/components/v2/terminal.css";
 
-// Preview of a terminal-style redesign. Kept out of search results until it replaces the homepage.
+// /v2 was the preview address for this design. It now sends visitors to the homepage.
 export const metadata: Metadata = {
-  title: `${site.name} | Full stack developer`,
-  robots: { index: false, follow: false },
+  title: "Moved",
+  robots: { index: false, follow: true },
+  alternates: { canonical: "/" },
 };
 
-export default function V2() {
-  return <TerminalPage />;
+export default function V2Redirect() {
+  return (
+    <>
+      <meta httpEquiv="refresh" content="0; url=/" />
+      <p style={{ padding: 24, fontFamily: "system-ui, sans-serif" }}>
+        This page has moved to <a href="/">the homepage</a>.
+      </p>
+    </>
+  );
 }

@@ -15,7 +15,12 @@ Then open http://localhost:3000.
 
 ## Edit the content
 
-All copy lives in **`src/content/site.ts`**: headline, intro, the before/after timing log, experience, projects, skills and contact links. The components in `src/components/` only handle layout.
+Copy lives in two files:
+
+- **`src/content/site.ts`**: name, intro, projects, skills and contact links.
+- **`src/content/terminal.ts`**: the hero's `perf.log` numbers, profile card, about blocks, and the experience timeline (each entry styled as a git commit). The profile photo is `public/fateh.jpg`.
+
+The components in `src/components/terminal/` only handle layout.
 
 Before going live:
 
@@ -35,14 +40,19 @@ The previous 2017 site is preserved on the `archive-2017` branch.
 ```
 src/
   app/
-    layout.tsx     # fonts (IBM Plex via next/font), metadata
-    page.tsx       # renders <Portfolio />
-    globals.css    # design tokens and all styles
-  components/
-    Portfolio.tsx  # page sections
-    TimingLog.tsx  # hero before/after bars
+    layout.tsx       # fonts (IBM Plex via next/font), metadata
+    page.tsx         # homepage: renders <TerminalPage />
+    globals.css      # base styles
+    v2/page.tsx      # old preview address, redirects to /
+  components/terminal/
+    TerminalPage.tsx # page sections
+    EditorWindow.tsx # hero perf.log typing animation
+    DotNav.tsx       # side dot navigation
+    terminal.css     # all portfolio styles
   content/
-    site.ts        # all site copy
+    site.ts          # shared copy
+    terminal.ts      # terminal-style copy
 public/
-  resume.pdf       # add yours here
+  fateh.jpg          # profile photo
+  resume.pdf         # add yours here
 ```

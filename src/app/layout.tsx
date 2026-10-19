@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from "next";
 import { IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import { site } from "@/content/site";
 import "./globals.css";
+import "@/components/terminal/terminal.css";
 
 const sans = IBM_Plex_Sans({
   subsets: ["latin"],
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0E1621",
+  themeColor: "#0b121c",
   colorScheme: "dark",
 };
 

@@ -3,6 +3,8 @@ import { site } from "@/content/site";
 import { terminal, type Commit } from "@/content/terminal";
 import { EditorWindow } from "./EditorWindow";
 import { DotNav } from "./DotNav";
+import { TypedText } from "./TypedText";
+import { GitLog } from "./GitLog";
 
 const nav = [
   { id: "top", label: "Home" },
@@ -20,7 +22,7 @@ function Command({ id, name, cmd }: { id: string; name: string; cmd: string }) {
       <span className="sr-only">{name}</span>
       <span aria-hidden="true">
         <span className="t-prompt">$ </span>
-        {cmd}
+        <TypedText text={cmd} />
       </span>
     </h2>
   );
@@ -198,12 +200,12 @@ export function TerminalPage() {
         {/* ---------- Experience ---------- */}
         <section id="experience" className="t-section" aria-labelledby="experience-title">
           <Command id="experience" name="Experience" cmd="git log --stat career" />
-          <ol className="t-log">
+          <GitLog>
             {terminal.commits.map((c, i) => (
               <CommitEntry key={c.hash} c={c} head={i === 0} />
             ))}
             <CommitEntry c={terminal.education} />
-          </ol>
+          </GitLog>
         </section>
 
         {/* ---------- Projects ---------- */}

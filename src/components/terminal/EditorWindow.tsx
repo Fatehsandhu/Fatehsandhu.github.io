@@ -33,12 +33,19 @@ export function EditorWindow({ timings }: { timings: LogRow[] }) {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     setShown(0);
     let n = 0;
-    const id = window.setInterval(() => {
-      n += 3;
-      setShown(Math.min(n, total));
-      if (n >= total) window.clearInterval(id);
-    }, 16);
-    return () => window.clearInterval(id);
+    let id: number | undefined;
+    // Start once the hero has finished booting in (see .t-editor in terminal.css).
+    const start = window.setTimeout(() => {
+      id = window.setInterval(() => {
+        n += 3;
+        setShown(Math.min(n, total));
+        if (n >= total) window.clearInterval(id);
+      }, 16);
+    }, 650);
+    return () => {
+      window.clearTimeout(start);
+      window.clearInterval(id);
+    };
   }, [total]);
 
   let budget = shown;

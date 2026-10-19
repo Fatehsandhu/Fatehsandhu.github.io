@@ -35,6 +35,12 @@ The site builds to static files (`output: "export"` in `next.config.ts`) and dep
 
 The previous 2017 site is preserved on the `archive-2017` branch.
 
+## Update the resume
+
+The downloadable resume is `public/Fateh_Sandhu_Resume.pdf`. Its source is `resume-source/resume.html`:
+edit that file, open it in Chrome, choose **Print → Save as PDF** (Letter, default margins off so the page's own
+margins apply), save over `public/Fateh_Sandhu_Resume.pdf`, and push. `/resume/` forwards to the PDF, so old links keep working.
+
 ## Structure
 
 ```

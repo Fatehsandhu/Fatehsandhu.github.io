@@ -270,7 +270,7 @@ export function TerminalPage() {
               <li>
                 <span className="t-muted">resume</span>
                 <a href={contact.resume} {...(resumeIsPdf ? { download: true } : {})}>
-                  {resumeIsPdf ? "resume.pdf" : "resume (updated version coming soon)"}
+                  {resumeIsPdf ? "Download PDF" : "View resume"}
                 </a>
               </li>
             )}

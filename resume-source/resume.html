@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Fateh Sandhu — Resume</title>
+<style>
+  @page { size: Letter; margin: 0.4in 0.55in 0.38in; }
+  :root {
+    --ink: #1a1d21;
+    --muted: #555c66;
+    --accent: #1f3a5f;
+    --rule: #c9cfd6;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Carlito", "Calibri", Arial, sans-serif;
+    font-size: 10.2pt;
+    line-height: 1.24;
+    color: var(--ink);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  a { color: inherit; text-decoration: none; }
+
+  header { text-align: center; margin-bottom: 4pt; }
+  h1 {
+    margin: 0;
+    font-size: 22pt;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+  }
+  .role {
+    margin: 2pt 0 4pt;
+    font-size: 10.5pt;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+  .contact { margin: 0; font-size: 9.4pt; color: var(--muted); white-space: nowrap; }
+  .contact span + span::before { content: "•"; margin: 0 5pt; color: var(--muted); }
+
+  h2 {
+    margin: 8pt 0 3pt;
+    padding-bottom: 1.5pt;
+    border-bottom: 1px solid var(--rule);
+    font-size: 10pt;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  p { margin: 0; }
+
+  .skills { margin: 0; display: grid; grid-template-columns: 118pt 1fr; row-gap: 1pt; }
+  .skills dt { font-weight: 600; }
+  .skills dd { margin: 0; }
+
+  .job-head, .item-head {
+    display: flex; justify-content: space-between; align-items: baseline; gap: 12pt;
+  }
+  .job-head strong, .item-head strong { font-size: 10pt; }
+  .where { color: var(--muted); white-space: nowrap; }
+
+  .roles { margin: 1pt 0 3pt; padding: 0; list-style: none; }
+  .roles li { display: flex; justify-content: space-between; }
+  .roles .title { font-weight: 600; font-style: italic; }
+  .roles .dates { color: var(--muted); }
+
+  ul.bullets { margin: 2pt 0 0; padding-left: 12pt; }
+  ul.bullets li { margin: 0 0 1.6pt; padding-left: 1pt; }
+  ul.bullets li::marker { color: var(--accent); }
+
+  .gap { margin-top: 5pt; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>FATEH SANDHU</h1>
+  <p class="role">Senior Full Stack Developer &nbsp;|&nbsp; PHP · Laravel · SQL · React · Next.js</p>
+  <p class="contact">
+    <span>Toronto, ON</span>
+    <span><a href="mailto:fatehsandhu@gmail.com">fatehsandhu@gmail.com</a></span>
+    <span><a href="https://fatehsandhu.github.io">fatehsandhu.github.io</a></span>
+    <span><a href="https://www.linkedin.com/in/fateh-singh-sandhu">linkedin.com/in/fateh-singh-sandhu</a></span>
+    <span><a href="https://github.com/Fatehsandhu">github.com/Fatehsandhu</a></span>
+  </p>
+</header>
+
+<h2>Professional Summary</h2>
+<p>Full stack developer with 8+ years building and modernizing enterprise web applications in PHP, Laravel, JavaScript, and SQL,
+mostly on business-critical systems that handle payment data. I'm at my best finding the root cause of a slow or broken system and
+fixing it for good, from cutting a 30-second screen load to 2–3 seconds to bringing 3–4 hour data loads down to under an hour.
+I also build modern apps with Next.js, React, and TypeScript, and work closely with product, QA, and business teams.</p>
+
+<h2>Technical Skills</h2>
+<dl class="skills">
+  <dt>Languages</dt><dd>PHP, JavaScript, TypeScript, SQL, Python, Java, HTML, CSS</dd>
+  <dt>Frameworks &amp; Libraries</dt><dd>Laravel, Lumen, React, Next.js, Tailwind CSS, jQuery</dd>
+  <dt>Backend &amp; Data</dt><dd>REST APIs and integrations, PostgreSQL, Supabase, schema optimization, indexing, authentication and security, PCI compliance</dd>
+  <dt>DevOps &amp; Testing</dt><dd>Git, Docker, CI/CD, Vercel, PHPUnit, unit and integration testing, code reviews</dd>
+  <dt>Practices</dt><dd>Performance optimization, root cause analysis, legacy modernization, Agile/Scrum, mentoring, <span style="white-space:nowrap">AI-assisted</span> development (Claude, GitHub Copilot)</dd>
+</dl>
+
+<h2>Professional Experience</h2>
+<div class="job-head">
+  <strong>TECHCOM</strong>
+  <span class="where">Woodbridge, ON &nbsp;|&nbsp; 2018 – 2026</span>
+</div>
+<ul class="roles">
+  <li><span class="title">Senior Software Developer</span><span class="dates">2022 – 2026</span></li>
+  <li><span class="title">Software Developer</span><span class="dates">2020 – 2022</span></li>
+  <li><span class="title">Software Developer / Business Analyst</span><span class="dates">2018 – 2020</span></li>
+</ul>
+<ul class="bullets">
+  <li>Optimized our CRM manager so a user's information screen loads in 2–3 seconds instead of 30+, by tuning SQL queries, setting up proper indexing, running each query once and keeping results locally, and cutting extra loops.</li>
+  <li>Reworked the back-end ingestion scripts that process 10GB+ delta files overnight. Loads that took 3–4 hours and held up other processes now finish in under an hour, with data sorted on the way in for fast retrieval.</li>
+  <li>Built a ticketing manager on our in-house API so clients can report and track issues easily. Support measured a ~75% drop in back-and-forth with clients, and issues that took a week now get resolved in about 2 days.</li>
+  <li>Modernized core legacy code by migrating to PHP 7 (~25% faster server responses, easier to maintain, more secure) and optimized SQL queries and schemas for 35% faster query times.</li>
+  <li>Created a reporting system that analyzes payment data across millions of records, tuned so clients get their data right away.</li>
+  <li>Revamped the user login process, moving the whole system to SHA-256 authentication to meet the latest security regulations, and helped bring our systems into PCI compliance.</li>
+  <li>Created a checklist for every fixed ticket confirming the fix matched the request, was optimized, and worked before it shipped; wrote PHPUnit tests and used CI/CD pipelines for reliable deployments.</li>
+  <li>Mentored 2 interns over about 2 years and reviewed code with a focus on teaching. Use Claude and GitHub Copilot daily, and check their output carefully before it ships.</li>
+  <li>Worked in Agile/Scrum teams with product, design, QA, and business stakeholders to turn requirements into web apps and REST APIs (PHP, Laravel, Lumen, JavaScript, SQL).</li>
+</ul>
+
+<div class="job-head gap">
+  <strong>WWWWIF</strong>
+  <span class="where">Windsor, ON &nbsp;|&nbsp; 2017</span>
+</div>
+<ul class="roles">
+  <li><span class="title">Web Developer Intern</span><span class="dates"></span></li>
+</ul>
+<ul class="bullets">
+  <li>Built, maintained, and tested organizational websites and internal platforms to government and web accessibility standards; investigated bugs and supported end users.</li>
+</ul>
+
+<h2>Projects</h2>
+<div class="item-head">
+  <strong>cashmate.ca — Loan Application Platform</strong>
+  <span class="where">Next.js · React · TypeScript · Supabase</span>
+</div>
+<ul class="bullets">
+  <li>Built a full-stack loan application platform on my own: an 8-step application form with live validation, address verification through the OpenCage Geocoding API, user profiles, and an admin dashboard for reviewing applications, with Tailwind CSS and Shadcn UI on the front end, Supabase (PostgreSQL) for data and secure sign-in, deployed on Vercel.</li>
+</ul>
+
+<h2>Education</h2>
+<div class="item-head">
+  <strong>Seneca College — Bachelor of Technology</strong>
+  <span class="where">Toronto, ON &nbsp;|&nbsp; 2014 – 2018</span>
+</div>
+
+</body>
+</html>

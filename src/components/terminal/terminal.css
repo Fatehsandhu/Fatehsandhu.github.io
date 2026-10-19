@@ -648,30 +648,3 @@
   .t-caret-blink { animation: none; }
 }
 
-/* ---------- Temporary resume page ---------- */
-.t-resume {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  max-width: 720px;
-  padding-top: 64px;
-  padding-bottom: 64px;
-}
-
-.t-resume-cmd {
-  margin: 0 0 16px;
-  font-family: var(--font-mono);
-  font-size: 0.875rem;
-  color: var(--t-muted);
-}
-
-.t-resume .t-lead {
-  margin: 0 0 28px;
-  line-height: 1.65;
-}
-
-.t-resume-back {
-  margin: 32px 0 0;
-  font-size: 0.875rem;
-}

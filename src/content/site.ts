@@ -109,8 +109,7 @@ export const site = {
     email: "fatehsandhu@gmail.com",
     linkedin: "https://www.linkedin.com/in/fateh-singh-sandhu",
     github: "https://github.com/Fatehsandhu",
-    // Temporary: /resume/ is a "coming soon" page. Once the PDF is in
-    // public/resume.pdf, change this to "/resume.pdf" and the buttons become downloads.
-    resume: "/resume/",
+    // The PDF in public/. Its source is resume-source/resume.html (see README).
+    resume: "/Fateh_Sandhu_Resume.pdf",
   },
 };

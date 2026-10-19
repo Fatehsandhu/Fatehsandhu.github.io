@@ -600,30 +600,49 @@
 
   .t-dots ul {
     display: grid;
-    gap: 14px;
+    justify-items: end;
+    gap: 6px;
     margin: 0;
     padding: 0;
     list-style: none;
   }
 
+  /* Each item is a horizontal bar; the link itself is a larger, easy-to-hit area. */
   .t-dots a {
     position: relative;
-    display: block;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    border: 1px solid var(--t-muted);
-    transition: background-color 0.2s ease, border-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 48px;
+    height: 22px;
   }
 
-  .t-dots a.is-active {
+  .t-dots a::after {
+    content: "";
+    width: 18px;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--t-muted);
+    opacity: 0.55;
+    transition: width 0.25s ease, opacity 0.25s ease, background-color 0.25s ease;
+  }
+
+  .t-dots a:hover::after,
+  .t-dots a:focus-visible::after {
+    width: 26px;
+    opacity: 1;
+  }
+
+  .t-dots a.is-active::after {
+    width: 38px;
     background: var(--t-amber);
-    border-color: var(--t-amber);
+    opacity: 1;
+    box-shadow: 0 0 10px rgba(242, 181, 68, 0.45);
   }
 
   .t-dots-label {
     position: absolute;
-    right: 20px;
+    right: 56px;
     top: 50%;
     transform: translateY(-50%);
     padding: 2px 8px;
@@ -641,6 +660,10 @@
   .t-dots a:hover .t-dots-label,
   .t-dots a:focus-visible .t-dots-label {
     opacity: 1;
+  }
+
+  .t-dots a:focus-visible {
+    outline-offset: 2px;
   }
 }
 

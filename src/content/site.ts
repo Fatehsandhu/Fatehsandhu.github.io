@@ -104,11 +104,12 @@ export const site = {
   },
 
   // TODO: replace these with your real details. Leave a value as "" to hide that link.
+  // Leave a value as "" to hide that link everywhere on the site.
   contact: {
-    email: "you@example.com",
-    linkedin: "https://www.linkedin.com/in/your-handle",
-    github: "https://github.com/your-handle",
-    // Put your resume at public/resume.pdf
-    resume: "/resume.pdf",
+    email: "", // e.g. "name@example.com"
+    linkedin: "", // e.g. "https://www.linkedin.com/in/your-handle"
+    github: "https://github.com/Fatehsandhu",
+    // Add the PDF as public/resume.pdf, then set this to "/resume.pdf"
+    resume: "",
   },
 };

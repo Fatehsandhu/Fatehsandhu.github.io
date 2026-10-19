@@ -233,7 +233,10 @@ export function TerminalPage() {
         {/* ---------- Contact ---------- */}
         <section id="contact" className="t-section" aria-labelledby="contact-title">
           <Command id="contact" name="Contact" cmd="./contact.sh" />
-          <p className="t-lead">I&apos;m looking for my next full stack or senior developer role. Email is the fastest way to reach me.</p>
+          <p className="t-lead">
+            I&apos;m looking for my next full stack or senior developer role.
+            {contact.email && " Email is the fastest way to reach me."}
+          </p>
           <ul className="t-contact">
             {contact.email && (
               <li>

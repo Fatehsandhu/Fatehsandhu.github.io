@@ -92,10 +92,22 @@ export function TerminalPage() {
               <span className="t-live" aria-hidden="true" />
               fateh@toronto:~ <span className="t-muted">·</span> {terminal.status}
             </p>
-            <h1 id="t-name" className="t-name">
-              <span className="t-hello">Hi, I&apos;m</span>
-              {site.name}
-            </h1>
+            <div className="t-intro-row">
+              {terminal.photo && (
+                <img
+                  className="t-hero-photo"
+                  src={terminal.photo}
+                  alt={`Photo of ${site.name}`}
+                  width={132}
+                  height={132}
+                  fetchPriority="high"
+                />
+              )}
+              <h1 id="t-name" className="t-name">
+                <span className="t-hello">Hi, I&apos;m</span>
+                {site.name}
+              </h1>
+            </div>
             <p className="t-role">
               <span className="t-amber">&lt;FullStackDeveloper /&gt;</span>{" "}
               <span className="t-muted">{"// "}</span>
@@ -136,13 +148,10 @@ export function TerminalPage() {
           <Command id="about" name="About" cmd="cat about.system" />
           <div className="t-about">
             <aside className="t-card" aria-label="Profile">
-              {terminal.photo ? (
-                <img className="t-avatar t-avatar-photo" src={terminal.photo} alt={`Photo of ${site.name}`} width={112} height={112} />
-              ) : (
-                <div className="t-avatar" aria-hidden="true">
-                  FS
-                </div>
-              )}
+              {/* The photo lives in the hero; the card uses the monogram so it isn't repeated. */}
+              <div className="t-avatar" aria-hidden="true">
+                FS
+              </div>
               <dl className="t-fields">
                 {terminal.profile.map((f) => (
                   <div key={f.key}>

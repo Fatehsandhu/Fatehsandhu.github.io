@@ -12,6 +12,8 @@ export type Commit = {
 
 export const terminal = {
   status: "open to work",
+  // Profile photo in public/. Set to "" to show the FS monogram instead.
+  photo: "/fateh.jpg",
   tagline: "Engineering software that people stop waiting on.",
   // Hero editor output. Same numbers as site.timings, as short log keys.
   perfLog: [

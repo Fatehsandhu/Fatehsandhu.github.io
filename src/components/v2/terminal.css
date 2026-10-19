@@ -339,6 +339,12 @@
   color: var(--t-amber);
 }
 
+.t-avatar-photo {
+  display: block;
+  object-fit: cover;
+  background: var(--t-panel-2);
+}
+
 .t-fields {
   margin: 0;
 }

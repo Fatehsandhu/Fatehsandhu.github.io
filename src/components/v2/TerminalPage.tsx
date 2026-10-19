@@ -136,9 +136,13 @@ export function TerminalPage() {
           <Command id="about" name="About" cmd="cat about.system" />
           <div className="t-about">
             <aside className="t-card" aria-label="Profile">
-              <div className="t-avatar" aria-hidden="true">
-                FS
-              </div>
+              {terminal.photo ? (
+                <img className="t-avatar t-avatar-photo" src={terminal.photo} alt={`Photo of ${site.name}`} width={112} height={112} />
+              ) : (
+                <div className="t-avatar" aria-hidden="true">
+                  FS
+                </div>
+              )}
               <dl className="t-fields">
                 {terminal.profile.map((f) => (
                   <div key={f.key}>

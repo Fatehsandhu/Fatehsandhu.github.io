@@ -1,0 +1,610 @@
+/* Terminal-style /v2 page. Everything is scoped under .t-root so the classic page is unaffected. */
+
+.t-root {
+  --t-bg: #0b121c;
+  --t-panel: #121c29;
+  --t-panel-2: #172334;
+  --t-line: #22314a;
+  --t-grid: rgba(139, 155, 176, 0.06);
+  --t-text: #e6edf3;
+  --t-muted: #8b9bb0;
+  --t-amber: #f2b544;
+  --t-blue: #7aa7ff;
+  --t-green: #5fd38d;
+
+  position: relative;
+  min-height: 100vh;
+  background-color: var(--t-bg);
+  background-image:
+    linear-gradient(var(--t-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--t-grid) 1px, transparent 1px);
+  background-size: 44px 44px;
+  color: var(--t-text);
+  font-family: var(--font-sans);
+}
+
+.t-root a {
+  color: var(--t-text);
+  text-decoration-color: var(--t-muted);
+}
+
+.t-root a:hover {
+  text-decoration-color: var(--t-amber);
+}
+
+.t-skip {
+  position: absolute;
+  left: 16px;
+  top: -100px;
+  z-index: 20;
+  padding: 8px 12px;
+  background: var(--t-amber);
+  color: var(--t-bg) !important;
+  font-weight: 600;
+}
+
+.t-skip:focus {
+  top: 12px;
+}
+
+.t-wrap {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.t-muted { color: var(--t-muted); }
+.t-amber { color: var(--t-amber); }
+.t-green { color: var(--t-green); }
+.t-prompt { color: var(--t-amber); }
+
+.t-live {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--t-green);
+  box-shadow: 0 0 0 3px rgba(95, 211, 141, 0.18);
+  vertical-align: 1px;
+}
+
+/* ---------- Hero ---------- */
+.t-hero {
+  display: grid;
+  gap: 40px;
+  align-items: center;
+  min-height: min(100vh, 820px);
+  padding: 72px 0 56px;
+}
+
+@media (min-width: 960px) {
+  .t-hero {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: 56px;
+  }
+}
+
+.t-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 28px;
+  padding: 6px 12px;
+  border: 1px solid var(--t-line);
+  border-radius: 999px;
+  background: var(--t-panel);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+}
+
+.t-name {
+  margin: 0 0 20px;
+  font-size: clamp(2.5rem, 6vw + 0.5rem, 4.5rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  background: linear-gradient(100deg, #ffffff 0%, #f6d28a 55%, var(--t-amber) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.t-hello {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 0.45em;
+  letter-spacing: -0.01em;
+  color: var(--t-text);
+  -webkit-text-fill-color: var(--t-text);
+}
+
+.t-role {
+  margin: 0 0 18px;
+  font-family: var(--font-mono);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+.t-intro {
+  max-width: 56ch;
+  margin: 0 0 28px;
+  color: var(--t-muted);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+.t-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.t-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 11px 18px;
+  border: 1px solid var(--t-line);
+  border-radius: 8px;
+  background: var(--t-panel);
+  font-weight: 500;
+  text-decoration: none;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.t-btn:hover {
+  border-color: var(--t-muted);
+}
+
+.t-root .t-btn-primary {
+  background: var(--t-amber);
+  border-color: var(--t-amber);
+  color: var(--t-bg);
+}
+
+.t-root .t-btn-primary:hover {
+  background: #f6c769;
+  border-color: #f6c769;
+}
+
+.t-root :focus-visible {
+  outline: 2px solid var(--t-amber);
+  outline-offset: 3px;
+}
+
+.t-modules {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 10px;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+}
+
+.t-modules ul,
+.t-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.t-modules li,
+.t-tags li {
+  padding: 3px 8px;
+  border: 1px solid rgba(242, 181, 68, 0.28);
+  border-radius: 4px;
+  background: rgba(242, 181, 68, 0.06);
+  color: #f3c675;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+/* ---------- Editor window (signature element) ---------- */
+.t-editor {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--t-line);
+  border-radius: 12px;
+  background: #0a1019;
+  box-shadow: 0 30px 80px -40px rgba(242, 181, 68, 0.35);
+}
+
+.t-editor-bar {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--t-line);
+  background: var(--t-panel);
+}
+
+.t-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+}
+.t-dot-r { background: #ff5f57; }
+.t-dot-y { background: #febc2e; }
+.t-dot-g { background: #28c840; }
+
+.t-editor-file {
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 40px;
+  color: var(--t-muted);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+}
+
+.t-editor-body {
+  margin: 0;
+  min-height: 248px;
+  padding: 20px 20px 24px;
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 1.85;
+  color: var(--t-text);
+}
+
+.t-line-row { color: var(--t-muted); }
+.t-line-ok { color: var(--t-green); }
+.t-after { color: var(--t-amber); font-weight: 500; }
+
+.t-caret {
+  display: inline-block;
+  width: 8px;
+  height: 1.05em;
+  margin-left: 2px;
+  vertical-align: -2px;
+  background: var(--t-amber);
+}
+
+.t-caret-blink {
+  animation: t-blink 1.1s steps(1) infinite;
+}
+
+@keyframes t-blink {
+  50% { opacity: 0; }
+}
+
+/* ---------- Sections ---------- */
+.t-section {
+  padding: 72px 0;
+  scroll-margin-top: 16px;
+}
+
+.t-h2 {
+  margin: 0 0 32px;
+  font-family: var(--font-mono);
+  font-size: clamp(1.375rem, 2.5vw + 0.5rem, 2rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.t-section h3 {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.t-section p {
+  margin: 0 0 12px;
+  line-height: 1.65;
+}
+
+/* About */
+.t-about {
+  display: grid;
+  gap: 20px;
+}
+
+@media (min-width: 860px) {
+  .t-about {
+    grid-template-columns: 320px minmax(0, 1fr);
+    align-items: start;
+  }
+}
+
+.t-card,
+.t-block,
+.t-project,
+.t-commit,
+.t-json {
+  border: 1px solid var(--t-line);
+  background: var(--t-panel);
+}
+
+.t-card {
+  padding: 28px 24px 12px;
+  border-radius: 14px;
+}
+
+.t-avatar {
+  display: grid;
+  place-items: center;
+  width: 112px;
+  height: 112px;
+  margin: 0 auto 24px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 25%, #2a3c57, #121c29 70%);
+  box-shadow: 0 0 0 2px var(--t-bg), 0 0 0 4px var(--t-amber);
+  font-family: var(--font-mono);
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--t-amber);
+}
+
+.t-fields {
+  margin: 0;
+}
+
+.t-fields div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+  border-top: 1px solid var(--t-line);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+}
+
+.t-fields dt { color: var(--t-muted); }
+.t-fields dd { margin: 0; text-align: right; }
+
+.t-blocks {
+  display: grid;
+  gap: 14px;
+}
+
+.t-block {
+  padding: 16px 20px 6px;
+  border-radius: 10px;
+}
+
+.t-block-cmd {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+}
+
+.t-checks {
+  display: grid;
+  gap: 6px 20px;
+  margin: 0 0 12px;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 560px) {
+  .t-blocks .t-checks {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.t-checks li {
+  position: relative;
+  padding-left: 22px;
+}
+
+.t-checks li::before {
+  content: "✓" / "";
+  position: absolute;
+  left: 0;
+  color: var(--t-green);
+}
+
+/* Experience as git log */
+.t-log {
+  position: relative;
+  display: grid;
+  gap: 16px;
+  margin: 0;
+  padding: 0 0 0 28px;
+  list-style: none;
+}
+
+.t-log::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: linear-gradient(var(--t-amber), var(--t-line) 30%);
+}
+
+.t-commit {
+  position: relative;
+  padding: 18px 20px 16px;
+  border-radius: 10px;
+}
+
+.t-commit::before {
+  content: "";
+  position: absolute;
+  left: -27px;
+  top: 22px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--t-bg);
+  border: 2px solid var(--t-muted);
+}
+
+.t-commit:first-child::before {
+  background: var(--t-amber);
+  border-color: var(--t-amber);
+  box-shadow: 0 0 0 4px rgba(242, 181, 68, 0.18);
+}
+
+.t-commit-ref {
+  margin-bottom: 6px !important;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+.t-head { color: var(--t-green); }
+
+.t-commit-meta {
+  color: var(--t-muted);
+  font-size: 0.875rem;
+  margin-bottom: 8px !important;
+}
+
+/* Projects */
+.t-projects {
+  display: grid;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 760px) {
+  .t-projects {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .t-project:only-child {
+    grid-column: 1 / -1;
+  }
+}
+
+.t-project {
+  padding: 22px;
+  border-radius: 12px;
+}
+
+.t-project-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 12px;
+  margin-bottom: 10px;
+}
+
+.t-badge {
+  padding: 2px 8px;
+  border: 1px solid rgba(95, 211, 141, 0.35);
+  border-radius: 4px;
+  color: var(--t-green);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+/* Skills */
+.t-json {
+  margin: 0;
+  padding: 22px 24px;
+  border-radius: 12px;
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--t-blue);
+}
+
+/* Contact */
+.t-lead {
+  max-width: 60ch;
+  font-size: 1.0625rem;
+}
+
+.t-contact {
+  display: grid;
+  gap: 10px;
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-mono);
+  font-size: 0.9375rem;
+}
+
+.t-contact li {
+  display: grid;
+  gap: 2px;
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 560px) {
+  .t-contact li {
+    grid-template-columns: 110px 1fr;
+    gap: 16px;
+  }
+}
+
+.t-footer {
+  padding: 40px 0 56px;
+  border-top: 1px solid var(--t-line);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+}
+
+/* ---------- Dot nav ---------- */
+.t-dots {
+  display: none;
+}
+
+@media (min-width: 1100px) {
+  .t-dots {
+    display: block;
+    position: fixed;
+    right: 24px;
+    top: 50%;
+    z-index: 10;
+    transform: translateY(-50%);
+  }
+
+  .t-dots ul {
+    display: grid;
+    gap: 14px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .t-dots a {
+    position: relative;
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid var(--t-muted);
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .t-dots a.is-active {
+    background: var(--t-amber);
+    border-color: var(--t-amber);
+  }
+
+  .t-dots-label {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: var(--t-panel-2);
+    color: var(--t-text);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease;
+  }
+
+  .t-dots a:hover .t-dots-label,
+  .t-dots a:focus-visible .t-dots-label {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .t-caret-blink { animation: none; }
+}

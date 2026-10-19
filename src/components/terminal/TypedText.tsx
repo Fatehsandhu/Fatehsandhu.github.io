@@ -24,7 +24,7 @@ export function TypedText({ text }: { text: string }) {
         if (!entry.isIntersecting) return;
         observer.disconnect();
         setTyping(true);
-        const step = Math.max(14, Math.min(32, 420 / text.length));
+        const step = Math.max(30, Math.min(55, 800 / text.length));
         let n = 0;
         timer = window.setInterval(() => {
           n += 1;

@@ -37,10 +37,10 @@ export function EditorWindow({ timings }: { timings: LogRow[] }) {
     // Start once the hero has finished booting in (see .t-editor in terminal.css).
     const start = window.setTimeout(() => {
       id = window.setInterval(() => {
-        n += 3;
+        n += 2;
         setShown(Math.min(n, total));
         if (n >= total) window.clearInterval(id);
-      }, 16);
+      }, 22);
     }, 650);
     return () => {
       window.clearTimeout(start);

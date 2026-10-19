@@ -107,7 +107,7 @@ export const site = {
   // Leave a value as "" to hide that link everywhere on the site.
   contact: {
     email: "", // e.g. "name@example.com"
-    linkedin: "", // e.g. "https://www.linkedin.com/in/your-handle"
+    linkedin: "https://www.linkedin.com/in/fateh-singh-sandhu",
     github: "https://github.com/Fatehsandhu",
     // Add the PDF as public/resume.pdf, then set this to "/resume.pdf"
     resume: "",

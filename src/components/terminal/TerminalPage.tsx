@@ -68,6 +68,7 @@ function External({ href, children }: { href: string; children: ReactNode }) {
 
 export function TerminalPage() {
   const { contact } = site;
+  const resumeIsPdf = contact.resume.endsWith(".pdf");
   const year = new Date().getFullYear();
   // One group per line reads better than JSON.stringify's one-item-per-line output.
   const skillsJson =
@@ -116,18 +117,27 @@ export function TerminalPage() {
             <p className="t-intro">{site.intro}</p>
             <div className="t-actions">
               {contact.resume && (
-                <a className="t-btn t-btn-primary" href={contact.resume} download>
-                  Download resume
-                </a>
-              )}
-              {contact.github && (
-                <a className="t-btn" href={contact.github} target="_blank" rel="noopener noreferrer">
-                  View GitHub
+                <a
+                  className="t-btn t-btn-primary"
+                  href={contact.resume}
+                  {...(resumeIsPdf ? { download: true } : {})}
+                >
+                  {resumeIsPdf ? "Download resume" : "Resume"}
                 </a>
               )}
               {contact.email && (
                 <a className="t-btn" href={`mailto:${contact.email}`}>
-                  Email me
+                  Email
+                </a>
+              )}
+              {contact.linkedin && (
+                <a className="t-btn" href={contact.linkedin} target="_blank" rel="noopener noreferrer">
+                  LinkedIn
+                </a>
+              )}
+              {contact.github && (
+                <a className="t-btn" href={contact.github} target="_blank" rel="noopener noreferrer">
+                  GitHub
                 </a>
               )}
             </div>
@@ -259,8 +269,8 @@ export function TerminalPage() {
             {contact.resume && (
               <li>
                 <span className="t-muted">resume</span>
-                <a href={contact.resume} download>
-                  resume.pdf
+                <a href={contact.resume} {...(resumeIsPdf ? { download: true } : {})}>
+                  {resumeIsPdf ? "resume.pdf" : "resume (updated version coming soon)"}
                 </a>
               </li>
             )}

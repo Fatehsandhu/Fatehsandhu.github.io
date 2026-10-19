@@ -106,10 +106,11 @@ export const site = {
   // TODO: replace these with your real details. Leave a value as "" to hide that link.
   // Leave a value as "" to hide that link everywhere on the site.
   contact: {
-    email: "", // e.g. "name@example.com"
+    email: "fatehsandhu@gmail.com",
     linkedin: "https://www.linkedin.com/in/fateh-singh-sandhu",
     github: "https://github.com/Fatehsandhu",
-    // Add the PDF as public/resume.pdf, then set this to "/resume.pdf"
-    resume: "",
+    // Temporary: /resume/ is a "coming soon" page. Once the PDF is in
+    // public/resume.pdf, change this to "/resume.pdf" and the buttons become downloads.
+    resume: "/resume/",
   },
 };

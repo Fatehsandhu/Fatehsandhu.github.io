@@ -36,6 +36,8 @@ export const terminal = {
   focus:
     "Finding out why something is slow and fixing the cause: queries, data imports, support workflows. I also mentor interns, review code, and work closely with product, QA and business teams.",
   strengths: [
+    "Debugging and root cause analysis",
+    "Explaining technical problems clearly",
     "Query and performance tuning",
     "Big-data ingestion and reporting",
     "Security and PCI compliance",
@@ -69,8 +71,8 @@ export const terminal = {
       hash: "9b4e71a",
       title: "CRM user screen: 30+ s → 2–3 s",
       meta: "TECHCOM",
-      body: "Fixed indexing, ran queries once instead of on every loop, and cut redundant processing.",
-      tags: ["SQL", "Indexing", "PHP"],
+      body: "Debugged slow loads for users with linked accounts: the same data was being looked up again and again. Cut the queries, kept the results in memory, and fixed the indexing.",
+      tags: ["Debugging", "SQL", "Indexing", "PHP"],
     },
     {
       hash: "3f6a0d9",
